@@ -15,11 +15,6 @@
 
 - *Components* are custom types and are created like HTMl elements with `React.createElement`, the type is specified with an object rather than a string
 - Components can just be functions that accept the *props* of an element, and return an element (HTML or custom)
-```javascript
-function Tree(props) {
-  return React.createElement();
-}
-```
   - such components are known as *Stateless Functional Components*
 - child elements passed to `React.createElement()` will be automatically added to the elements `children` prop
 
@@ -32,3 +27,20 @@ function Tree(props) {
   - when props or children have changed
   - identical elements that have been reordered within an array
 - the `key` prop is used to give identical elements in an array a unique identification, so React can if it has been moved
+
+- *events* need to be handled to interact with an app
+- React has a number of event props that correspond to JavaScript events, e.g. `onClick`, `onKeyDown`, `onMouseMove`
+- if state is effected a re-render would be needed in event handler function
+```javascript
+React.createElement('button', {
+  onClick: funciton() {
+    console.log("clicked")
+  }
+}, 'Click!')
+```
+- event handler functions take an `event` object as the first argument, containing properties relevant to the specific event type (broadly mirroring JavaScript events) e.g. `preventDefault()` and `target`
+  - the `target` may not always be the element the trigger the event, like JavaScript
+- React binding is one-way "*A component can set its child element's props. Child elements cannot directly change the values of their props.*"
+  - in the example of an `input` element with a `value` prop, editing the value on the page does nothing
+  - an event callback can be used to allow the parent to change the value
+- callbacks and functions can be passed to components as props

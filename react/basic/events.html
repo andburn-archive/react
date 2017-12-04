@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Events</title>
+    <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <style>
+        #container {
+            display: flex;
+        }
+        .card {
+            display: flex;
+            flex-grow: 1;
+            align-items: center;
+            height: 150px;
+            border: 1px solid black;    
+            margin: 4px;
+        }
+        .card span {
+            flex-grow: 1;
+            text-align: center;
+            color: white;
+            background-color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+        let nextKey = 0;
+        let cards = [];
+
+        function Card(props) {
+            return React.createElement("div", { className: 'card', key: props.key },
+                React.createElement("span", { className: 'label' }, props.key)
+            );
+        }
+
+        function Buttons(props) {
+            return React.createElement("div", {}, 
+                React.createElement("button", { onClick: props.clickMore }, "+"),
+                React.createElement("button", { onClick: props.clickLess }, "-"),
+            );
+        }
+
+        function addCard() {
+            cards.push(Card({ number: nextKey, key: nextKey }));
+            nextKey++;
+        }
+
+        function removeCard() {
+            cards.pop();
+        }
+
+        function addCards(count) {
+            for (let i = 0; i < count; i++) {
+                addCard();
+            }  
+        }
+
+        const add = () => { addCard(); console.log(cards.length); render(); };
+        const remove = () => { removeCard(); console.log(cards.length); render(); };
+
+        function render() {
+            ReactDOM.render(
+                React.createElement("div", { id: "container" },
+                    cards,
+                    React.createElement(Buttons, { 
+                        clickLess: remove,
+                        clickMore: add
+                    })
+                ), 
+                document.getElementById("app"));
+        }
+
+        addCards(10);
+        render();
+    </script>
+  </body>
+</html>
