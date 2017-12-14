@@ -32,7 +32,7 @@
 
         function Card(props) {
             return React.createElement("div", { className: 'card', key: props.key },
-                React.createElement("span", { className: 'label' }, props.key)
+                React.createElement("span", { className: 'label'}, props.key)
             );
         }
 
@@ -58,19 +58,18 @@
             }  
         }
 
-        const add = () => { addCard(); console.log(cards.length); render(); };
-        const remove = () => { removeCard(); console.log(cards.length); render(); };
-
         function render() {
             ReactDOM.render(
-                React.createElement("div", { id: "container" },
-                    cards,
+                React.createElement("div", {},
+                    React.createElement("div", { id: "container" }, cards),
+                    React.createElement("div", {}, cards.length),
                     React.createElement(Buttons, { 
-                        clickLess: remove,
-                        clickMore: add
+                        clickLess: () => { removeCard(); render(); },
+                        clickMore: () => { addCard(); render(); }
                     })
                 ), 
-                document.getElementById("app"));
+                document.getElementById("app")
+            );
         }
 
         addCards(10);
