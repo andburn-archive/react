@@ -18,8 +18,6 @@
   - such components are known as *Stateless Functional Components*
 - child elements passed to `React.createElement()` will be automatically added to the elements `children` prop
 
-**First Rule of React** *If it is practical to pass the data you need through props, it must be passed through props*
-
 - React only renders when you tel it too, with `ReactDOM.render()`
 - the first render call will replace the node's content with the React element, subsequent render calls will update the content if necessary
 - basic rules of when an element (compared to previous) should be updated:
@@ -44,3 +42,57 @@ React.createElement('button', {
   - in the example of an `input` element with a `value` prop, editing the value on the page does nothing
   - an event callback can be used to allow the parent to change the value
 - callbacks and functions can be passed to components as props
+
+- *Function Components* need everything passed in via their props
+  - the drawback being this *state* needs to be stored somewhere
+  - they are also only re-rendered when their parent is, not individually
+- *Self-contained Components* are the solution, they can store state, communicate externally and re-render on-demand
+- *Self-contained Components*:
+  - are classes
+  - and must extend `React.Component`
+  - use the `render()` method to return the React element
+  - props are accessed via `this.props` instead of function args
+- Methods vs Functions: main difference is methods have access to the `this` object, functions can only access whatever is passed in as arguments
+  - allowing methods to store data on `this` and access it on subsequent renders
+- `React.Component` has a `setState` method which enables components to be self-contained
+  - `this.setState(obj)` copies the properties of the *obj* to `this.state`, the component and its children will then be re-rendered
+  - can't be used in `render()` as it will cause an infinite loop
+  - also `this.state` is preferred inside constructors
+- *Component instances* shouldn't be *new'd* up directly, but allow React to handle it with `React.createElement()`
+  - actual instantiation doesn't take place until its first render
+- *Constructors* are not mandatory, `React.Component` base constructor will be used to set `this.props` if none is given
+  - if a constructor is defined it needs to call `super(props)`
+  - most useful for setting the initial state with `this.state` as it is undefined by default
+
+### JavaScript Aside - Simplified `this`
+The `this` object is not related to the class, but the object it was called on.
+With dot syntax `obj.someMehtod()` the value of `this` in `someMethod()` will be `obj` no matter where `someMethod` was defined.
+Calling `someMethod()` without a dot means `this` will be null. Except when,
+- you force a `this` value using `call`, `apply` or `bind` methods on a function
+- an arrow `=>` function has a har-wired `this` value at the location of its definition
+
+- point to note: *once you pass a method as a callback, you have no idea what `this` will be* (unless its an arrow function!)
+- arrow functions are costly though, a new copy of the function is created every time `=>` is encountered
+- as consequence it is common to use `bind` to create bound copies of event callbacks in the constructor
+```javascript
+constructor() {
+  // replaces this.reset with a copy that has 'this' forced to refer to the instance
+  this.reset = this.reset.bind(this);
+}
+
+reset() {
+  this.setState({ ... });
+}
+```
+
+### Tips
+
+If it is practical to pass the data you need through props, it must be passed through props
+
+If you don't need state, don't use it (feed through props instead)
+
+Initialize state in the constructor, using `this.state`
+
+Using `setState()` doesn't re-render everything, but only the component and its children - this can be used to an advantage on frequently updtated components
+
+Changes from `setState()` won't update `this.state` instantly, a callback can be given for when the change is actually made

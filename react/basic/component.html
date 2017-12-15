@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Component</title>
+    <meta charset="UTF-8" lang="enUS" />
+    <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <style>
+        .card-base {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 200px;
+            height: 280px;
+            margin: 10px;
+        }
+        .card-detail {
+            color: white;
+            background-color: slateblue;
+            font-weight: bold;
+            flex-grow: 3;
+            margin: 4px;
+            border-radius: 0 0 10px 10px;
+            padding: 5px;
+        }
+        .card-name {
+            border: solid 1px black;
+            color: black;
+            flex-grow: 1;
+            margin: 4px;
+            border-radius: 10px 10px 0 0;
+            padding: 5px;
+        }
+        .card-name input {
+            width: 90%;
+        }
+        .card-detail textarea {
+            width: 90%;
+            height: 50%;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+        class EditableCard extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { name: "Name", detail: "Detail", editable: false };
+                this.toggle = this.toggle.bind(this);
+                this.setName = this.setName.bind(this);
+                this.setDetail = this.setDetail.bind(this);
+            }
+
+            renderEditable() {
+                return React.createElement('div', { className: 'card-base' },                     
+                    React.createElement('div', { className: 'card-name'}, 
+                        React.createElement('input', { 
+                            type: 'text', value: this.state.name, onChange: this.setName 
+                        })
+                    ),
+                    React.createElement('div', { className: 'card-detail'}, 
+                        React.createElement('textarea', { onChange: this.setDetail, value: this.state.detail })
+                    )
+                );
+            }
+
+            renderReadOnly() {
+                return React.createElement('div', { className: 'card-base' },                     
+                    React.createElement('div', { className: 'card-name'}, this.state.name),
+                    React.createElement('div', { className: 'card-detail'}, this.state.detail)
+                );
+            }
+
+            setDetail(event) {
+                this.setState({ detail: event.target.value });
+            }
+
+            setName(event) {
+                this.setState({ name: event.target.value });
+            }
+
+            toggle(event) { 
+                this.setState({ editable: !this.state.editable });
+            }
+
+            render() {
+                const buttonText = this.state.editable ? 'Save' : 'Edit';
+                return React.createElement('div', {}, 
+                    this.state.editable ? this.renderEditable() : this.renderReadOnly(),
+                    React.createElement('button', { onClick: this.toggle }, buttonText)
+                );
+            }
+        }
+
+        ReactDOM.render(
+            React.createElement('div', {}, 
+                React.createElement(EditableCard, {}),
+                React.createElement(EditableCard, {}),
+            ),
+            document.getElementById('app')
+        );
+    </script>
+  </body>
+</html>
