@@ -1,3 +1,5 @@
+*Mantra* everything is JavaScript! 
+
 - use [create-react-app](https://github.com/facebook/create-react-app) to init a new project
 ```
 npx create-react-app app-name
@@ -30,3 +32,21 @@ const style = {
 // ...
 return <p style={style}></p>
 ```
+
+- *Conditionals*
+  - can use ternary operator in JSX `{ true ? <div></div> : null }`
+  - better to assign JSX to a variable  conditionally, `null` by default and assigned if necessary
+- *Lists*
+  - to create a list of elements from an array of objects, use array functions e.g. `map`.
+  ```
+  {this.state.people.map(p => {
+    return <Person name={p.name} age={p.age} />
+  })}
+  ```
+  - this returns a new array of JSX elements, when React encounters an array in JSX it tries to render each element as JSX
+  - need to assign a unique `key` prop to array elements, so whole array isn't re-rendered
+  
+  
+- clone an array with trick `somearray.slice()`
+- modern way use spread operator `[...somearray]`
+- always better to mutate a copy of state, then `setState` instead of mutating reference types directly
