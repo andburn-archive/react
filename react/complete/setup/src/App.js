@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import Radium from 'radium';
 
 class App extends Component {
   state = {
@@ -33,6 +34,18 @@ class App extends Component {
 
   render() {
     let persons = null;
+    
+    const btnStyle = {
+      backgroundColor: 'azure',
+      border: '2px solid blue',
+      padding: '10px',
+      fontSize: '1.2em',
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'navy',
+        color: 'white',
+      }
+    };
 
     if (this.state.showPersons) {
       persons = (
@@ -54,11 +67,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi I'm a React App</h1>
-        <button onClick={this.clickHandler}>Toggle</button>
+        <button style={btnStyle} onClick={this.clickHandler}>Toggle</button>
         {persons}
       </div>
     );
   }
 }
 
-export default App;
+export default Radium(App);

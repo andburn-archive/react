@@ -4,3 +4,5 @@
 
 - [NextGen JavaScript](notes/00-NetGenJS.md)
 - [React Basics](notes/01-ReactBasics.md)
+- [React Styling](notes/03-ReactStyling.md)
+
