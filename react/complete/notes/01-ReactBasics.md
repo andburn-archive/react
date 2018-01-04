@@ -50,3 +50,6 @@ return <p style={style}></p>
 - clone an array with trick `somearray.slice()`
 - modern way use spread operator `[...somearray]`
 - always better to mutate a copy of state, then `setState` instead of mutating reference types directly
+
+- `import React, { Component } from 'react'` first name is the default export, the names in the brackets are named exports
+

@@ -1,77 +1,58 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person';
-import Radium from 'radium';
+import People from './components/People/People';
+import Cockpit from './components/Cockpit/Cockpit';
 
 class App extends Component {
   state = {
-    persons: [
+    people: [
       { id: 879, name: "Max", age: 23 },
       { id: 234, name: "Chris", age: 34 },
       { id: 979, name: "Tina", age: 26 },
     ],
-    showPersons: false
+    showPeople: false
   };
 
-  clickHandler = () => {
-    const current = this.state.showPersons;
-    this.setState({  showPersons: !current });
+  btnClickHandler = () => {
+    const current = this.state.showPeople;
+    this.setState({ showPeople: !current });
   };
 
   nameHandler = (event, id) => {
-    const personIndex = this.state.persons.findIndex(x => x.id === id);
-    const persons = [...this.state.persons];
-    const person = persons[personIndex];
+    const personIndex = this.state.people.findIndex(x => x.id === id);
+    const people = [...this.state.people];
+    const person = people[personIndex];
     person.name = event.target.value;
-    this.setState({persons: persons});
+    this.setState({people: people});
   };
 
   deleteHandler = (index) => {
-    const people = [...this.state.persons];
+    const people = [...this.state.people];
     people.splice(index, 1);
-    this.setState({persons: people});
+    this.setState({people: people});
   };
 
   render() {
-    let persons = null;
-    
-    const btnStyle = {
-      backgroundColor: 'azure',
-      border: '2px solid blue',
-      padding: '10px',
-      fontSize: '1.2em',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'navy',
-        color: 'white',
-      }
-    };
+    let people = null;        
 
-    if (this.state.showPersons) {
-      persons = (
+    if (this.state.showPeople) {
+      people = (
         <div>
-          {this.state.persons.map((p, i) => {
-            return (
-              <Person 
-                key={p.id}
-                name={p.name} 
-                age={p.age} 
-                click={() => this.deleteHandler(i)} 
-                changed={(event) => this.nameHandler(event, p.id)} />
-            );
-          })}          
+          <People 
+            people={this.state.people} 
+            clicked={this.deleteHandler} 
+            changed={this.nameHandler} />          
         </div>
       );
     }
 
     return (
       <div className="App">
-        <h1>Hi I'm a React App</h1>
-        <button style={btnStyle} onClick={this.clickHandler}>Toggle</button>
-        {persons}
+        <Cockpit clicked={this.btnClickHandler} />
+        {people}
       </div>
     );
   }
 }
 
-export default Radium(App);
+export default App;
