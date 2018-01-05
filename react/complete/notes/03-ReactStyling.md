@@ -63,3 +63,8 @@ import classes from './App.css'
 
 <button className={classes.Green} />
 ```
+- `create-react-app` v2 will have css module support, until release new projects can use
+```
+create-react-app my-app --scripts-version react-scripts-cssmodules
+```
+  - file naming convention `src/components/Button/Button.module.css` with class name convention `[directory]__[filename]__[classname]`
