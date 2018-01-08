@@ -53,6 +53,7 @@ return (
     </>
 );
 ```
+  - if not supported by tooling use `<React.Fragment>`
 
 ## Higher Order Components
 
