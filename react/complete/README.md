@@ -6,7 +6,7 @@
 - [React Basics](notes/01-ReactBasics.md)
 - [React Styling](notes/03-ReactStyling.md)
 - [Components](notes/04-Components.md)
-- [Project](notes/05-Projec.md)
+- [HTTP Requests](notes/05-Requests.md)
 
 
 ## References
