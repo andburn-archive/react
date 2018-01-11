@@ -1,6 +1,9 @@
 - favour functional components, small and focused and unable to alter state
 - class components, single place to manage state and to use lifecycle hooks
-
+- containers are class components that manage state and pass this state on to other components
+  - class components may have state that is for internal use only and are therefore not considered containers
+  
+  
 ## Lifecycle
 
 - Stateful components

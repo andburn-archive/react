@@ -65,3 +65,5 @@ const multiply = number => number * 2;
   });
   ```
 - `===` triple equals compare type and value
+
+- *Promises* 

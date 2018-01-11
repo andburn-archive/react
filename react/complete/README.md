@@ -22,3 +22,7 @@ CSS Modules [1](https://github.com/css-modules/css-modules), [2](https://medium.
 [Higher Order Components](https://reactjs.org/docs/higher-order-components.html)
 
 [Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html)
+
+[axios](https://github.com/axios/axios)
+
+[JSONPlaceholder](https://jsonplaceholder.typicode.com/)
