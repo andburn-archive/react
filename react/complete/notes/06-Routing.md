@@ -34,6 +34,7 @@
     <Route path="/:id" exact component={FullPost} />
 </Switch>
 ```
+- use `withRouter` HOC to make components lower in the hierarchy to be aware of routes
 - use `props.history.push('/about')` to navigate programatically
 - nested routes are routes defined in children as well as parent, the child route needs to manually set a relative url such as with `props.match.url`
 - `Redirect` inside a `Switch` *from* a route *to* another `<Redirect from="/" to="/posts" />`
