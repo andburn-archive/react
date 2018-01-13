@@ -7,9 +7,10 @@
 - [React Styling](notes/03-ReactStyling.md)
 - [Components](notes/04-Components.md)
 - [HTTP Requests](notes/05-Requests.md)
+- [Routing](notes/06-Routing.md)
 
 
-## References
+## Links
 
 [Quick Start](https://reactjs.org/docs/hello-world.html)
 
@@ -26,3 +27,4 @@ CSS Modules [1](https://github.com/css-modules/css-modules), [2](https://medium.
 [axios](https://github.com/axios/axios)
 
 [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
+
