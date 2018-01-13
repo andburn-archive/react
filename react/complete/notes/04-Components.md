@@ -117,5 +117,5 @@ componentDidMount() {
 - returning `null` from a component is ok, nothing will be rendered
 - boolean `props` need not be assigned `<Thing click={handler} activated />`, `activated prop is `true`
 - parent can control lifecycle of children
-
+- JSX comments `{/* ... */}`
 
