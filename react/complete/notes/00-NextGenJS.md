@@ -48,6 +48,7 @@ const multiply = number => number * 2;
   - *spread* when used to split an array or props `const newArray = [...oldArray, 1, 2]`
     - added props overwrite exisiting
     - can use to copy object properties `newObj = { ...oldObj };`
+    - doesn't deep copy, only clones first level of props, other levels are pointers to the objects
   - *rest* used for variable sized function arguments `(...args) => args[0]`
 - *Destructuring*
   - extract array elements or object properties an store in variables

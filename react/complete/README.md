@@ -28,3 +28,8 @@ CSS Modules [1](https://github.com/css-modules/css-modules), [2](https://medium.
 
 [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
 
+[Validate.JS](https://validatejs.org/)
+
+[formsy-react](https://github.com/formsy/formsy-react/)
+
+[react-validation](https://www.npmjs.com/package/react-validation)
