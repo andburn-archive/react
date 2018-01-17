@@ -8,6 +8,7 @@
 - [Components](notes/04-Components.md)
 - [HTTP Requests](notes/05-Requests.md)
 - [Routing](notes/06-Routing.md)
+- [Redux](notes/07-Redux.md)
 
 
 ## Links

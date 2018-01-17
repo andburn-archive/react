@@ -57,14 +57,38 @@ const multiply = number => number * 2;
   [a, , c] = [1, 2, 3]
   {name} = {name: 'Joe', age: 20}
   ```
-  
-- *Array Functions* (not next-gen) [[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)]:
+
+### Array Functions (recap)
+
+[MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array):
   - `map`, `filter`, `reduce` etc.
   ```
   const doubled = [1, 2, 3].map((num) => {
     return num * 2;
   });
   ```
+- `concat` like `push` but returns a new array
+- `filter` also returns a new array, applying a predicate on which elements to return (immutable array copy `arr.filter((e, i) => i !== id))`
+
 - `===` triple equals compare type and value
 
-- *Promises* 
+### Promises
+
+- instead of passing success and failure callbacks to a function, the function returns a *promise* which can call `then` which is passed success and failure functions
+- it is guaranteed that `then` callbacks, will be called
+- `then` can be called multiple times, callbacks executed in order
+- `then` itself returns a promise, which leads to chaining allowing multiple dependent async calls, one waiting on previous to finish etc.
+- `catch` can be used as a catchall failure callback
+
+```
+doSomething()
+.then(result => doSomethingElse(result))
+.then(newResult => doThirdThing(newResult))
+.then(finalResult => {
+  console.log(`Got the final result: ${finalResult}`);
+})
+.catch(failureCallback);
+```
+
+- create a promise using the constructor e.g.
+`const wait = ms => new Promise(resolve => setTimeout(resolve, ms));`
