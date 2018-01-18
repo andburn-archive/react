@@ -19,3 +19,9 @@
   - `combineReducers` function takes JS object giving a mapping to Reducers
   - the mapping gives a sub state naming, e.g. `state.reducer1.results`
   - if a reducer needs a value from the global state handled in another reducer, it should be passed via an Action
+
+- redux's `Provider` should wrap around the router's `BrowserRouter`
+- when using `connect` it returns a function which takes the component as an argument
+```
+export default connect(mapState, mapDispatch)(thisComponent);
+```
