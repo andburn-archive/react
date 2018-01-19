@@ -34,3 +34,7 @@ CSS Modules [1](https://github.com/css-modules/css-modules), [2](https://medium.
 [formsy-react](https://github.com/formsy/formsy-react/)
 
 [react-validation](https://www.npmjs.com/package/react-validation)
+
+[redux-thunk](https://github.com/gaearon/redux-thunk)
+
+[redux.js docs](https://redux.js.org/)

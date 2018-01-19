@@ -25,3 +25,36 @@
 ```
 export default connect(mapState, mapDispatch)(thisComponent);
 ```
+
+- its possible to insert a *middleware* layer in front of the reducer, that intercepts an action in order to use it before passing it onto to the reducer
+  - for example a logger could log all action info like this
+  - need to create a middleware function
+```
+const someEnhancer = store => {
+  return next => {
+    return action => {
+      ...
+      ...
+      return next(action);
+    }
+  }
+}
+```
+  - add as argument when creating store, `createStore(reducer, applyMiddleware(e1, e1,...)`
+  - add multiple enchancers with `compose`
+
+- *Action Creators* are simply functions that return an action object (with type) to be passed to `dispatch`
+- using *redux-thunk* we can use Action creators that return a function instead of an action, allowing the the dispatch to be delayed or canceled, ideal for async
+  - adding `thunk` middleware, passes action creators inner function the dispatcher allowing it to be called when required
+  - it also passes a *getState* argument to access the state, best to not overuse this
+```
+() => {
+  return (dispatch, getState) => {
+    ... getState().things ...;
+    dispatch(syncActionCreator());
+  }
+}
+```
+- *reducers should only update state*, so limit transformation logic in the action creator
+
+
