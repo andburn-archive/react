@@ -47,3 +47,9 @@
 - need to configure server to always load `index.html` in order to let react handle routes
 - may need to set the basepath for `react-router` useful when using sub dirs of domain to host app `<RouterBrowser basename='/my-app'>`
 
+- route loading breaks when `connect` is called on *App* container, need to use `withRouter` hoc
+```
+export default withRouter(connect(null, mapDispatchToProps)(App));
+```
+
+

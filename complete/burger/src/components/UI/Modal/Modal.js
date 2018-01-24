@@ -8,10 +8,6 @@ class Modal extends Component {
         return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
     }
 
-    componentWillMount() {
-        console.log("[Modal] WillUpdate");
-    }
-
     render() {
         const style = {
             transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)',

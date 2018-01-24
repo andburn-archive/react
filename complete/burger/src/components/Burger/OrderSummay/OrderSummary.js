@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 import Button from '../../UI/Button/Button';
 
 class OrderSummary extends Component {
-    componentWillUpdate() {
-        console.log("[OrderSummary] WillUpdate");
-    }
-
     render() {
         const itemStyle = { textTransform: 'capitalize' };
         const ingredientSummary = Object.keys(this.props.ingredients)
