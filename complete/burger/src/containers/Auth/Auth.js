@@ -121,7 +121,6 @@ class Auth extends Component {
         return (
             <div className={styles.Auth}>
                 { this.props.isAuthenicated ? <Redirect to={this.props.authRedirectPath} /> : null }
-
                 <h2>{this.state.isSignup ? 'SIGNUP' : 'LOGIN'}</h2>
                 { this.props.error ? <p className={styles.Error}>{this.props.error.message}</p> : null }
                 <form onSubmit={this.submitHandler}>

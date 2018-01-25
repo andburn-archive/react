@@ -43,6 +43,39 @@
 - routing *Guards* limit routes to particular cases, e.g. auth users. Use conditional component technique, i.e. plain javascript control on whether desired route compoent is rendered/included
 - if a `Route` has no path it acts as a catch all route, e.g. for 404
 - *lazy-loading*, loading components only when needed to break down large apps into smaller bundles, with `create-react-app` and `react-router` 4+, see lecture 199
+- create a lazy-loading component:
+```
+import React, { Component } from 'react';
+
+const asyncComponent = (importComponent) => {
+    return class extends Component {
+        state = {
+            component: null
+        };
+
+        componentDidMount() {
+            importComponent()
+                .then(cmp => {
+                    this.setState({ component: cmp.default });
+                });
+        }
+
+        render() {
+            const C = this.state.component;
+            return C ? <C {...this.state.props} /> : null;
+        }
+    }
+}
+
+export default asyncComponent;
+```
+- use it something like:
+```
+const asyncOrders = asyncComponent(() => {
+  return import('./containers/Orders/Orders');
+});
+```
+- if components are small, may not be optimal to use lazy loading
 
 - need to configure server to always load `index.html` in order to let react handle routes
 - may need to set the basepath for `react-router` useful when using sub dirs of domain to host app `<RouterBrowser basename='/my-app'>`

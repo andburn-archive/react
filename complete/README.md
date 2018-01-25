@@ -38,3 +38,7 @@ CSS Modules [1](https://github.com/css-modules/css-modules), [2](https://medium.
 [redux-thunk](https://github.com/gaearon/redux-thunk)
 
 [redux.js docs](https://redux.js.org/)
+
+[create-react-app env vars](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables)
+
+
