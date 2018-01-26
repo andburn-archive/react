@@ -41,4 +41,8 @@ CSS Modules [1](https://github.com/css-modules/css-modules), [2](https://medium.
 
 [create-react-app env vars](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables)
 
+[Jest Docs](https://facebook.github.io/jest/docs/en/getting-started.html)
+
+[Enzyme Docs](http://airbnb.io/enzyme/)
+
 
