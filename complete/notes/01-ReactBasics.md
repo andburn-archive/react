@@ -53,3 +53,10 @@ return <p style={style}></p>
 
 - `import React, { Component } from 'react'` first name is the default export, the names in the brackets are named exports
 
+## Deployment
+
+- check basepath, `<BrowserRouter basename="/my-app/">`
+- run production build, *create-react-app* - `yarn run build`
+- server must always render *index.html*, including 404 cases i.e. if the server doesn't know the path -the react app must hanlde routes
+- upload build artifacts to a static server
+
