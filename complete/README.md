@@ -10,6 +10,7 @@
 - [Routing](notes/06-Routing.md)
 - [Redux](notes/07-Redux.md)
 - [Auth & Testing](notes/08-AuthAndTesting.md)
+- [Bonus](notes/09-BonusModules.md)
 
 ## Links
 

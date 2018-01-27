@@ -1,0 +1,17 @@
+{
+  "name": "webpack-flow",
+  "version": "1.0.0",
+  "description": "webpack flow setup for react",
+  "main": "index.js",
+  "author": "andburn",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.3.0",
+    "webpack-dev-server": "^3.1.1"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2"
+  }
+}
