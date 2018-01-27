@@ -46,4 +46,10 @@ CSS Modules [1](https://github.com/css-modules/css-modules), [2](https://medium.
 
 [Enzyme Docs](http://airbnb.io/enzyme/)
 
+[Webpack Docs](https://webpack.js.org/concepts/)
+
+[Babel Docs](https://babeljs.io/)
+
+
+
 
