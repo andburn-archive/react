@@ -48,6 +48,20 @@
 - the `CSSTransition` component makes it even easier to apply css transitions/animations by using a prescribed naming convention on css classes for the various enter/exit stages
 - `TransitionGroup` can be used for dealing with groups of `Transition` components, for lists or any dynamic groups of elements
 
+## Redux Saga
+
+- alternative to `redux-thunk` for managing side-effects (async, non-pure etc) with redux
+- it uses ES6 [generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
+- `redux-saga` enables the creation of very lean *action creators* with all side-effects defined as separate *sagas*
+- the provided `call` function, allows easy testing of the generators
+- with `all` a number of yield calls can be combined and executed at the same time
+
+## Preact
+
+- mostly compatiable API to React
+- smaller size 3kb
+- main difference is the *Virtual DOM Diffing* algorithm
+- most useful when small size and fast startup is required
 
 
 

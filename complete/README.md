@@ -60,6 +60,20 @@ CSS Modules [1](https://github.com/css-modules/css-modules), [2](https://medium.
 
 [react-router-transition](https://github.com/maisano/react-router-transition)
 
+[redux-saga](https://redux-saga.js.org/)
+
+[gatsby.js](https://www.gatsbyjs.org/)
+
+[react-native](https://facebook.github.io/react-native/)
+
+[preact](https://preactjs.com/)
+
+[preact-cli](https://github.com/developit/preact-cli)
+
+
+
+
+
 
 
 
