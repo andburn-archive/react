@@ -50,6 +50,16 @@ CSS Modules [1](https://github.com/css-modules/css-modules), [2](https://medium.
 
 [Babel Docs](https://babeljs.io/)
 
+[NextJS](https://github.com/zeit/next.js)
+
+[react-transition-group](https://github.com/reactjs/react-transition-group)
+
+[react-motion](https://github.com/chenglou/react-motion)
+
+[react-move](https://github.com/react-tools/react-move)
+
+[react-router-transition](https://github.com/maisano/react-router-transition)
+
 
 
 
